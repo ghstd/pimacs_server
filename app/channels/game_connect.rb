@@ -24,8 +24,7 @@ class GameConnect < ApplicationCable::Channel
 
   def unsubscribed
     p 'unsubscribed'
-    # ищем игрока в базе, получаем его информацию через params
-    $game.delete_player(id: 1, map_name: '4')
+    $game.delete_player(id: 1, map_name: '5')
   end
 
   def player_move(data)
@@ -33,7 +32,11 @@ class GameConnect < ApplicationCable::Channel
   end
 
   def create_projectile(data)
-    p data
+    $game.create_projectile(data: data['message'])
+  end
+
+  def player_change_map(data)
+    $game.player_change_map(data: data['message'])
   end
 
 end

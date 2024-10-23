@@ -12,7 +12,7 @@ Thread.new do
       $game.update
       sleep(1.0 / 10)
     rescue => e
-      Rails.logger.error "Ошибка в игровом цикле: #{e.backtrace.first}"
+      Rails.logger.error "Ошибка в игровом цикле: #{e.backtrace}"
       Rails.logger.error "=============================================="
     end
   end

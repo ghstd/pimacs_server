@@ -15,6 +15,17 @@ class World
     end
   end
 
+  def find_creature_by_id(creature_id)
+    creature = nil
+    @maps.each do |map_name, map|
+      creature = map.players.find { |player| player.id == creature_id }
+      break if creature
+      creature = map.monsters.find { |monster| monster.id == creature_id }
+      break if creature
+    end
+    return creature
+  end
+
   def state
     state = {}
     @maps.each do |map_name, map|

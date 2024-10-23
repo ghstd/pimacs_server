@@ -20,7 +20,7 @@ class Map
     init_layers
     init_tiles_info
     init_transition_areas
-    TimeoutsRegistrator.add_timeout(observer: self, method: :init_monsters, delay: 20, type: :once)
+    TimeoutsRegistrator.add_timeout(observer: self, method: :init_monsters, delay: 60, type: :once)
   end
 
   def state

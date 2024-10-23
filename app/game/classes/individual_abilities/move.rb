@@ -1,6 +1,6 @@
 module IndividualAbilities
   module Move
-    attr_accessor
+    attr_accessor :moving, :new_path, :final_goal, :target_of_movement_x, :target_of_movement_y
     def init_move_module
       @path = []
       @final_goal = []

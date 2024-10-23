@@ -34,7 +34,7 @@ module TimeoutsRegistrator
     def initialize(delay, type = :infinity, times = 1)
       @observer = nil
       @method = nil
-      @delay = delay
+      @delay = delay / $SERVER_COEFICIENT
       @counter = 0
       @type = type  # :once, :times, :infinity
       @times = times

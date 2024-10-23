@@ -1,6 +1,6 @@
 class Player
   attr_accessor :x, :y, :width, :height, :speed, :current_image,
-    :target, :xp, :mp, :spelling, :skills, :id, :state, :timestamp
+    :target, :xp, :mp, :spelling, :skills, :id, :state, :current_map, :map_name, :timestamp
 
   include IndividualAbilities::Move
 

@@ -2,7 +2,7 @@ module Monsters
   class BasicClass
     attr_accessor :x, :y, :width, :height, :speed, :current_image,
       :target, :respawn_start, :respawn_finish, :xp, :spelling, :skills,
-      :current_map
+      :current_map, :id, :in_action
     def initialize(x:, y:, speed: 1, respawn_start: nil, respawn_finish: nil)
       @tile_size = $TILE_SIZE
       @half_tile_size = @tile_size / 2
@@ -12,15 +12,17 @@ module Monsters
       @y = y
       @width = 32
       @height = 32
-      @speed = speed
+      @speed = speed * $SERVER_COEFICIENT
 
       @target = nil
 
       # @current_image = nil
 
       @spelling = false
+      @in_action = false
 
       @id = IdGenerator.create_id
+
       @map_name = '5'
       @current_map = @world.maps[@map_name]
 
@@ -37,7 +39,15 @@ module Monsters
         id: @id,
         map_name: @map_name,
         x: @x,
-        y: @y
+        y: @y,
+        monster_type: self.class.to_s,
+        spelling: @spelling,
+        in_action: @in_action,
+        moving: @moving,
+        new_path: @new_path,
+        final_goal: @final_goal,
+        target_of_movement_x: @target_of_movement_x,
+        target_of_movement_y: @target_of_movement_y
       }
     end
 
